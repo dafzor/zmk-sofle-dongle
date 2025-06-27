@@ -1,3 +1,10 @@
+// TODO get combo layer activation working
+// TODO refine layout key positions
+// TODO tune the delays for the home row and other dual keys
+// TODO see if a solution for rolling activations
+// TODO find a better pic for the screens
+
+
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 35    // 10
 #include <input/processors.dtsi>
@@ -71,13 +78,13 @@
 
     // have combo layer
     // TODO fix this
-    // conditional_layers {
-    //     compatible = "zmk,conditional-layers";
-    //     tri_layer {
-    //         if-layers = <NAV SYMB>;
-    //         then-layer = <NUM>;
-    //     };
-    // };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        tri_layer {
+            if-layers = <NAV SYMB>;
+            then-layer = <NUM>;
+        };
+    };
 
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
