@@ -1,9 +1,8 @@
-// TODO get combo layer activation working
 // TODO refine layout key positions
 // TODO tune the delays for the home row and other dual keys
 // TODO see if a solution for rolling activations
 // TODO find a better pic for the screens
-
+// TODO figure out how to do rgb dialer
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 35    // 10
