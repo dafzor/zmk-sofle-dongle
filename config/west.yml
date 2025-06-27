@@ -7,7 +7,7 @@ manifest:
     - name: englmaxi
       url-base: https://github.com/englmaxi
     - name: whoop-t
-      url-base: https://github.com/whoop-tts
+      url-base: https://github.com/whoop-t
   projects:
     - name: zmk
       remote: zmkfirmware
