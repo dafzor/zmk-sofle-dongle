@@ -27,7 +27,7 @@ layers:
   - Y
   - .
   - {t: '=', s: +}
-  - {t: '$$mdi:backspace$$', h: func}
+  - {t: '$$mdi:backspace$$', h: sys}
   - {t: A, h: '$$mdi:apple-keyboard-option$$'}
   - {t: R, h: LGUI}
   - {t: S, h: '$$mdi:apple-keyboard-shift$$'}
@@ -55,14 +55,14 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - $$mdi:volume-off$$
   - $$mdi:apple-keyboard-control$$
+  - LGUI
   - $$mdi:apple-keyboard-option$$
-  - num
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-shift$$'}
-  - nav
+  - {t: '$$mdi:keyboard-esc$$', h: nav}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:backspace$$', h: symb}
   - $$mdi:keyboard-space$$
-  - func
+  - {t: '$$mdi:keyboard-tab$$', h: sys}
   - {t: '$$mdi:keyboard-esc$$', h: '$$mdi:apple-keyboard-option$$'}
   - $$mdi:apple-keyboard-control$$
   qwerty:
@@ -92,7 +92,7 @@ layers:
   - O
   - P
   - {t: \, s: '|'}
-  - {t: '$$mdi:backspace$$', h: func}
+  - {t: '$$mdi:backspace$$', h: sys}
   - A
   - S
   - D
@@ -127,7 +127,7 @@ layers:
   - {t: '$$mdi:keyboard-return$$', type: enter}
   - {t: '$$mdi:backspace$$', h: symb}
   - $$mdi:keyboard-space$$
-  - func
+  - sys
   - {t: '$$mdi:keyboard-esc$$', h: '$$mdi:apple-keyboard-option$$'}
   - $$mdi:backspace-reverse-outline$$
   game:
@@ -333,8 +333,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
   - KP NLCK
+  - {t: '$$mdi:transfer$$', type: trans}
   - KP SLASH
   - KP MULTIPLY
   - KP MINUS
@@ -346,7 +346,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - KP SLASH
   - KP 7
   - KP 8
   - KP 9
@@ -359,20 +359,20 @@ layers:
   - $$mdi:apple-keyboard-control$$
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - KP MULTIPLY
   - KP 4
   - KP 5
   - KP 6
-  - KP PLUS
+  - KP MINUS
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  - KP ENTER
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '$$mdi:transfer$$', type: trans}
+  - KP 0
   - KP 1
   - KP 2
   - KP 3
@@ -381,16 +381,81 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held alternate}
-  - {t: '$$mdi:transfer$$', type: trans}
-  - {type: held alternate}
+  - {type: held}
   - {t: '$$mdi:backspace$$', type: backspace}
   - KP 0
   - KP 0
   - KP DOT
   func:
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - F10
+  - F7
+  - F8
+  - F9
+  - $$mdi:apple-keyboard-caps$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - $$mdi:apple-keyboard-option$$
+  - LGUI
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:apple-keyboard-control$$
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - F11
+  - F4
+  - F5
+  - F6
+  - SLCK
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:keyboard-return$$', type: enter}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - F12
+  - F1
+  - F2
+  - F3
+  - INS
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
+  sys:
   - '&soft_off'
   - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
