@@ -23,6 +23,7 @@
 #define SYMB      4
 #define NUM       5
 #define FUNC      6
+#define SYS       7
 
 
 / {
@@ -75,8 +76,16 @@
         hold-trigger-on-release;
     };
 
+    // try to allow quick mod taps while still having another function on them
+    tlt: thumb_layer_tap 
+        compatible = "zmk,behavior-hold-tap";
+        flavor = "hold-preferred";
+        tapping-term-ms = <280>;
+        quick-tap-ms = <150>;
+    }
+
     // have combo layer
-    // TODO fix this
+    // !WARNING: Can't use num as a normal layer because of this
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
@@ -99,11 +108,11 @@
         // regular colemak-dh layout with home row mods (default)
         colemakdh {
             bindings = <
-            &gresc         &kp N1       &kp N2       &kp N3       &kp N4           &kp N5    &mmv MOVE_UP      &kp N6         &kp N7          &kp N8        &kp N9       &kp N0       &kp MINUS
-            &kp TAB        &kp Q        &kp W        &kp F        &kp P            &kp B     &mmv MOVE_DOWN    &kp J          &kp L           &kp U         &kp Y        &kp APOS     &kp EQUAL
-            &lt FUNC BSPC  &hml LALT A  &hml LGUI R  &hml LSHFT S &hml LCTRL T     &kp G     &mmv MOVE_LEFT    &kp M          &hmr RCTRL N    &hmr RSHFT E  &hmr LGUI I  &hmr LALT O  &kp SEMI
-            &kp LSHFT      &kp Z        &kp X        &kp C        &kp D            &kp V     &mmv MOVE_RIGHT   &kp K          &kp H           &kp COMMA     &kp DOT      &kp FSLH     &kp ENTER
-            &kp C_MUTE     &kp LCTRL    &kp LALT     &mo NUM      &mt LSHFT ENTER  &mo NAV   &mkp LCLK         &lt SYMB BSPC  &kp SPACE       &mo FUNC      &mt RALT ESC &kp RCTRL
+            &gresc          &kp N1       &kp N2       &kp N3       &kp N4           &kp N5         &mmv MOVE_UP      &kp N6          &kp N7          &kp N8         &kp N9       &kp N0       &kp MINUS
+            &kp TAB         &kp Q        &kp W        &kp F        &kp P            &kp B          &mmv MOVE_DOWN    &kp J           &kp L           &kp U          &kp Y        &kp APOS     &kp EQUAL
+            &tlt SYS  BSPC  &hml LALT A  &hml LGUI R  &hml LSHFT S &hml LCTRL T     &kp G          &mmv MOVE_LEFT    &kp M           &hmr RCTRL N    &hmr RSHFT E   &hmr LGUI I  &hmr LALT O  &kp SEMI
+            &kp LSHFT       &kp Z        &kp X        &kp C        &kp D            &kp V          &mmv MOVE_RIGHT   &kp K           &kp H           &kp COMMA      &kp DOT      &kp FSLH     &kp ENTER
+            &kp C_MUTE      &kp LCTRL    &kp LGUI     &mo LALT     &mt LSHFT ENTER  &tlt NAV ESC   &mkp LCLK         &tlt SYMB BSPC  &kp SPACE       &tlt SYS  TAB  &mt RALT ESC &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -115,9 +124,9 @@
             bindings = <
             &kp ESC        &kp N1     &kp N2    &kp N3    &kp N4            &kp N5    &kp UP      &kp N6         &kp N7     &kp N8     &kp N9        &kp N0      &kp BSPC
             &kp TAB        &kp Q      &kp W     &kp E     &kp R             &kp T     &kp DOWN    &kp Y          &kp U      &kp I      &kp O         &kp P       &kp BSLH
-            &lt FUNC BSPC  &kp A      &kp S     &kp D     &kp F             &kp G     &kp LEFT    &kp H          &kp J      &kp K      &kp L         &kp SEMI    &kp APOS
+            &lt SYS  BSPC  &kp A      &kp S     &kp D     &kp F             &kp G     &kp LEFT    &kp H          &kp J      &kp K      &kp L         &kp SEMI    &kp APOS
             &kp LSHFT      &kp Z      &kp X     &kp C     &kp V             &kp B     &kp RIGHT   &kp N          &kp M      &kp COMMA  &kp DOT       &kp FSLH    &kp ENTER
-            &kp C_MUTE     &kp LCTRL  &kp LGUI  &kp LALT  &mt LSHIFT ENTER  &mo NAV   &kp ENTER   &lt SYMB BSPC  &kp SPACE  &mo FUNC   &mt RALT ESC  &kp DEL
+            &kp C_MUTE     &kp LCTRL  &kp LGUI  &kp LALT  &mt LSHIFT ENTER  &mo NAV   &kp ENTER   &lt SYMB BSPC  &kp SPACE  &mo SYS    &mt RALT ESC  &kp DEL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
@@ -169,19 +178,33 @@
         // numpad layer for easy number
         num {
             bindings = <
-            &trans         &trans    &trans    &trans     &trans     &trans    &trans   &trans  &kp KP_NLCK  &kp KP_SLASH  &kp KP_MULTIPLY  &kp KP_MINUS  &trans
-            &trans         &trans    &trans    &trans     &trans     &trans    &trans   &trans  &kp KP_N7    &kp KP_N8     &kp KP_N9        &kp KP_PLUS   &trans
-            &trans         &kp LALT  &kp LGUI  &kp LSHFT  &kp LCTRL  &trans    &trans   &trans  &kp KP_N4    &kp KP_N5     &kp KP_N6        &kp KP_PLUS   &trans
-            &trans         &trans    &trans    &trans     &trans     &trans    &trans   &trans  &kp KP_N1    &kp KP_N2     &kp KP_N3        &kp KP_ENTER  &trans
-            &trans         &trans    &trans    &trans     &trans     &trans    &trans   &trans  &kp BSPC     &kp KP_N0     &kp KP_N0        &kp KP_DOT
+            &trans         &trans    &trans    &trans     &trans     &trans          &trans   &kp KP_NLCK      &trans       &kp KP_SLASH  &kp KP_MULTIPLY  &kp KP_MINUS  &trans
+            &trans         &trans    &trans    &trans     &trans     &trans          &trans   &kp KP_SLASH     &kp KP_N7    &kp KP_N8     &kp KP_N9        &kp KP_PLUS   &trans
+            &trans         &kp LALT  &kp LGUI  &kp LSHFT  &kp LCTRL  &trans          &trans   &kp KP_MULTIPLY  &kp KP_N4    &kp KP_N5     &kp KP_N6        &kp KP_MINUS  &trans
+            &trans         &trans    &trans    &trans     &trans     &kp KP_ENTER    &trans   &kp KP_N0        &kp KP_N1    &kp KP_N2     &kp KP_N3        &kp KP_ENTER  &trans
+            &trans         &trans    &trans    &trans     &trans     &trans          &trans   &trans           &kp BSPC     &kp KP_N0     &kp KP_N0        &kp KP_DOT
             >;
 
             display-name = "num";
             sensor-bindings = <&scroll_encoder>;
         };
 
-        // board functions and special portuguese (and other language) characters
+        // function layer 
         func {
+            bindings = <
+            &trans  &trans    &trans    &trans     &trans     &trans       &trans   &trans   &trans  &trans  &trans  &trans    &trans
+            &trans  &trans    &trans    &trans     &trans     &trans       &trans   &kp F10  &kp F7  &kp F8  &kp F9  &kp CAPS  &trans
+            &trans  &kp LALT  &kp LGUI  &kp LSHFT  &kp LCTRL  &trans       &trans   &kp F11  &kp F4  &kp F5  &kp F6  &kp SLCK  &trans
+            &trans  &trans    &trans    &trans     &trans     &kp ENTER    &trans   &kp F12  &kp F1  &kp F2  &kp F3  &kp INS   &trans
+            &trans  &trans    &trans    &trans     &trans     &trans       &trans   &trans   &trans  &trans  &trans  &trans
+            >;
+
+            display-name = "func";
+            sensor-bindings = <&scroll_encoder>;
+        };
+
+        // board functions and special portuguese (and other language) characters
+        sys {
             bindings = <
             &soft_off        &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &out OUT_TOG   &rgb_ug RGB_SPI   &trans  &trans     &trans     &trans       &trans     &kp CAPS 
             &to COLEMAKDH    &trans        &trans        &kp RA(D)       &trans        &trans         &rgb_ug RGB_SPD   &trans  &kp RA(J)  &kp RA(J)  &kp RA(L)    &trans     &kp SLCK
@@ -190,7 +213,7 @@
             &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock  &trans        &trans         &rgb_ug RGB_TOG   &trans  &trans     &trans     &bootloader  &sys_reset
             >;
 
-            display-name = "func";
+            display-name = "sys";
             // this needs to be a custom behavior to work
             //sensor-bindings = <&inc_dec_kp RGB_BRI RGB_BRD>;
         };
