@@ -16,6 +16,7 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 
+// Layer references
 #define COLEMAKDH 0
 #define QWERTY    1
 #define GAME      2
@@ -50,6 +51,9 @@
     acceleration-exponent = <1>;
 };
 
+// ensures layer swap always takes priority and that
+// quick taps in the backspace and esc don't trigger
+// the layers
 &lt {
     flavor = "hold-preferred";
     tapping-term-ms = <280>;
@@ -58,6 +62,7 @@
 
 
 / {
+    // Home row mods
     // https://zmk.dev/docs/keymaps/behaviors/hold-tap?examples=home_row_mods
     hml: home_row_mod_left {
         compatible = "zmk,behavior-hold-tap";
@@ -81,14 +86,6 @@
         hold-trigger-key-positions = < N E I O >; // List of keys on the left side of the keyboard
         hold-trigger-on-release;
     };
-
-    // try to allow quick mod taps while still having another function on them
-    // tlt: thumb_layer_tap 
-    //     compatible = "zmk,behavior-hold-tap";
-    //     flavor = "hold-preferred";
-    //     tapping-term-ms = <280>;
-    //     quick-tap-ms = <150>;
-    // }
 
     // have combo layer
     // !WARNING: Can't use num as a normal layer because of this
@@ -114,11 +111,11 @@
         // regular colemak-dh layout with home row mods (default)
         colemakdh {
             bindings = <
-            &gresc          &kp N1       &kp N2       &kp N3       &kp N4           &kp N5         &mmv MOVE_UP      &kp N6         &kp N7          &kp N8         &kp N9       &kp N0       &kp MINUS
-            &kp TAB         &kp Q        &kp W        &kp F        &kp P            &kp B          &mmv MOVE_DOWN    &kp J          &kp L           &kp U          &kp Y        &kp APOS     &kp EQUAL
-            &lt SYS  BSPC   &hml LALT A  &hml LGUI R  &hml LSHFT S &hml LCTRL T     &kp G          &mmv MOVE_LEFT    &kp M          &hmr RCTRL N    &hmr RSHFT E   &hmr LGUI I  &hmr LALT O  &kp SEMI
-            &kp LSHFT       &kp Z        &kp X        &kp C        &kp D            &kp V          &mmv MOVE_RIGHT   &kp K          &kp H           &kp COMMA      &kp DOT      &kp FSLH     &kp ENTER
-            &kp C_MUTE      &kp LCTRL    &kp LGUI     &kp LALT     &mt LSHFT ENTER  &lt NAV ESC    &mkp LCLK         &lt SYMB BSPC  &kp SPACE       &lt SYS  TAB   &mt RALT ESC &kp RCTRL
+            &gresc        &kp N1       &kp N2       &kp N3         &kp N4           &kp N5         &mmv MOVE_UP      &kp N6         &kp N7         &kp N8        &kp N9       &kp N0       &kp EQUAL
+            &kp TAB       &kp Q        &kp W        &kp F          &kp P            &kp B          &mmv MOVE_DOWN    &kp J          &kp L          &kp U         &kp Y        &kp APOS     &kp MINUS
+            &lt SYS BSPC  &hml LALT A  &hml LGUI R  &hml LSHFT S   &hml LCTRL T     &kp G          &mmv MOVE_LEFT    &kp M          &hmr RCTRL N   &hmr RSHFT E  &hmr LGUI I  &hmr LALT O  &kp SEMI
+            &kp LSHFT     &kp Z        &kp X        &kp C          &kp D            &kp V          &mmv MOVE_RIGHT   &kp K          &kp H          &kp COMMA     &kp DOT      &kp FSLH     &kp ENTER
+            &kp C_MUTE    &kp LCTRL    &kp LALT     &lt FUNC LGUI  &mt LSHFT ENTER  &lt NAV ESC    &mkp LCLK         &lt SYMB BSPC  &kp SPACE      &lt SYS  TAB  &mt RALT DEL &kp RCTRL
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
