@@ -56,8 +56,8 @@
 // the layers
 &lt {
     flavor = "hold-preferred";
-    tapping-term-ms = <280>;
-    quick-tap-ms = <150>;
+    tapping-term-ms = <150>;
+    // quick-tap-ms = <150>;
 };
 
 
