@@ -6,6 +6,8 @@ manifest:
       url-base: https://github.com/tokyo2006
     - name: englmaxi
       url-base: https://github.com/englmaxi
+    - name: infely
+      url-base: https://github.com/infely
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -16,6 +18,9 @@ manifest:
       revision: micro_spi2
     - name: zmk-dongle-display
       remote: englmaxi
+      revision: main
+    - name: nice-view-battery
+      remote: infely
       revision: main
   self:
     path: config
