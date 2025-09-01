@@ -61,7 +61,7 @@ layers:
   - {t: '$$mdi:keyboard-esc$$', h: nav}
   - $$mdi:mouse-left-click-outline$$
   - {t: '$$mdi:backspace$$', h: symb}
-  - {t: '$$mdi:keyboard-space$$', h: apt}
+  - $$mdi:keyboard-space$$
   - {t: '$$mdi:keyboard-tab$$', h: apt}
   - {t: '$$mdi:backspace-reverse-outline$$', h: '$$mdi:apple-keyboard-option$$'}
   - $$mdi:apple-keyboard-control$$
@@ -256,8 +256,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '$$mdi:transfer$$', type: trans}
   - {type: held}
-  - {type: held alternate}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   symb:
