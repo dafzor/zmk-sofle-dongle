@@ -5,7 +5,7 @@
 // TODO figure out how to do rgb dialer
 
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 35    // 10
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 25    // 10
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -69,7 +69,7 @@
         #binding-cells = <2>;
         flavor = "balanced";
         require-prior-idle-ms = <150>;
-        tapping-term-ms = <200>;
+        tapping-term-ms = <210>;
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = < A R S T >; // List of keys on the right side of the keyboard
@@ -80,7 +80,7 @@
         #binding-cells = <2>;
         flavor = "balanced";
         require-prior-idle-ms = <150>;
-        tapping-term-ms = <200>;
+        tapping-term-ms = <210>;
         quick-tap-ms = <175>;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = < N E I O >; // List of keys on the left side of the keyboard
